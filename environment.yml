@@ -1,0 +1,16 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - jupyterlab
+  - ipykernel
+  - fastapi
+  - "uvicorn[standard]"
+  - scikit-learn
+  - pandas
+  - numpy
+  - pytest
+  - black
+  - isort
+  - flake8

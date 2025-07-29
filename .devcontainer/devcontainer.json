@@ -1,0 +1,84 @@
+{
+    "name": "mamba-env",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    // Install extensions
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // git & github tools
+                "donjayamanne.githistory",
+                "GitHub.codespaces",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.vscode-github-actions",
+                // conveniences
+                "ms-azuretools.vscode-docker",
+                "peakchen90.open-html-in-browser",
+                "mechatroner.rainbow-csv",
+                "oderwat.indent-rainbow",
+                "BriteSnow.vscode-toggle-quotes",
+                "wware.snippet-creator",
+                "dqisme.sync-scroll",
+                "vsls-contrib.codetour",
+                "ms-vscode.vscode-speech",
+                "tomoki1207.pdf",
+                // data analysis tools
+                "ms-toolsai.datawrangler",
+                "helixquar.randomeverything",
+                // spell check
+                "ban.spellright",
+                "ltex-plus.vscode-ltex-plus",
+                "ms-vscode.wordcount",
+                //"travisthetechie.write-good-linter",
+                // conventional commits
+                "vivaxy.vscode-conventional-commits",
+                // language support
+                "brunnerh.insert-unicode",
+                "yzhang.markdown-all-in-one",
+                "TakumiI.markdowntable",
+                // python and jupyter support
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.jupyter-cell-tags",
+                "ms-toolsai.jupyter",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                // theming
+                "GitHub.github-vscode-theme",
+                "hassanoof.theme",
+                "PKief.material-icon-theme",
+                "daylerees.rainglow",
+                // fun
+                "tonybaloney.vscode-pets"
+            ]
+        },
+        "settings": {
+            "python.defaultInterpreterPath": "/opt/conda/bin/python"
+        }
+    },
+    // Forward JupyterLab and RStudio ports
+    "forwardPorts": [
+        8000,
+        8888
+    ],
+    "portsAttributes": {
+        "8000": {
+            "label": "FastAPI",
+            "requireLocalPort": true,
+            "onAutoForward": "ignore"
+        },
+        "8888": {
+            "label": "JupyterLab",
+            "requireLocalPort": true,
+            "onAutoForward": "ignore"
+        }
+    },
+    // after container creation, you can e.g. install any extra pip tools
+    "postCreateCommand": "pip install pre-commit",
+    "remoteUser": "vscode"
+}
